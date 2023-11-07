@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">NUESTRA_APP</string>
+
+    //activity_main
+    <string name="email_in">Email:</string>
+    <string name="contrasenia_in">Contraseña:</string>
+    <string name="acceder_in">Acceder</string>
+    <string name="crear_cuenta">¿No tienes cuenta?</string>
+
+    //secundary_activity
+    <string name="nombre_up">Nombre:</string>
+    <string name="email_up">Email:</string>
+    <string name="contrasenia_up">Contraseña:</string>
+    <string name="confirmcontrasenia_up">Confirmar Contraseña:</string>
+    <string name="acceder_up">Acceder</string>
+    <string name="tengo_cuenta">¿Ya tienes cuenta?</string>
+
+    //third_activity
+    <string name="aniadir_libro">Añadir Libro</string>
+
+    //fourth_activity
+    <string name="autor">Autor:</string>
+    <string name="editorial">Editorial:</string>
+    <string name="sinopsis">Sinopsis:</string>
+    <string name="volver">Volver</string>
+
+    //add_book
+    <string name="aniadir">Añadir</string>
+</resources>
