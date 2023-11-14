@@ -3,13 +3,13 @@
 
     //activity_main
     <string name="email_in">Email:</string>
-    <string name="contrasenia_in">Contraseña:</string>
+    <string name="contrasenia_in">Contraseña</string>
     <string name="acceder_in">Acceder</string>
-    <string name="crear_cuenta">¿No tienes cuenta?</string>
+    <string name="crear_cuenta">¿No tienes cuenta?Pulsa Aqui.</string>
 
     //secundary_activity
     <string name="nombre_up">Nombre:</string>
-    <string name="email_up">Email:</string>
+    <string name="email_up">Email</string>
     <string name="contrasenia_up">Contraseña:</string>
     <string name="confirmcontrasenia_up">Confirmar Contraseña:</string>
     <string name="acceder_up">Acceder</string>
