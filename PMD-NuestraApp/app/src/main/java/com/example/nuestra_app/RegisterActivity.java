@@ -2,10 +2,15 @@ package com.example.nuestra_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -23,6 +28,19 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
 
+        TextView textViewTengoCuenta = findViewById(R.id.textViewTengoCuenta);
+
+        SpannableString spannableString = new SpannableString("¿Ya tienes cuenta?");
+
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                abrirPantallaLogin();
+            }
+
+        };
+
         editTextUsuario_Up = findViewById(R.id.editTextUsuario_up);
         editTextEmail_Up = findViewById(R.id.editTextTextEmail_up);
         editTextPass_Up = findViewById(R.id.editTextPass_up);
@@ -33,13 +51,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtener los datos ingresados por el usuario
                 String name = editTextUsuario_Up.getText().toString();
                 String email = editTextEmail_Up.getText().toString();
                 String password = editTextPass_Up.getText().toString();
                 String confirmPassword = editTextConfirmPass_Up.getText().toString();
 
-                // Validar los datos, por ejemplo, verificar si las contraseñas coinciden
                 if (password.equals(confirmPassword)) {
                     // Crear una instancia de DatabaseHelper
                     DatabaseHelper dbHelper = new DatabaseHelper(RegisterActivity.this);
@@ -65,6 +81,19 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        // Añade el ClickableSpan al SpannableString
+        spannableString.setSpan(clickableSpan, 0, spannableString.length(), 0);
 
+        // Aplica el SpannableString al TextView
+        textViewTengoCuenta.setText(spannableString);
+
+        // Activa el movimiento del enlace
+        textViewTengoCuenta.setMovementMethod(LinkMovementMethod.getInstance());
+
+    }
+
+    private void abrirPantallaLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

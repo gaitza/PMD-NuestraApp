@@ -21,14 +21,12 @@ public class AddBookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addbook_activity);
 
-        // Obtener referencias de los elementos de la UI
         editTextTitulo = findViewById(R.id.editTextTitulo);
         editTextAutor = findViewById(R.id.editTextAutor);
         editTextEditorial = findViewById(R.id.editTextEditorial);
         editTextSinopsis = findViewById(R.id.editTextSinopsis);
         btnAdd = findViewById(R.id.btnAdd);
 
-        // Configurar el evento de clic para el botón Guardar
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,20 +39,15 @@ public class AddBookActivity extends AppCompatActivity {
                 // Almacenar los datos en la base de datos
                 guardarDatosEnBaseDeDatos(titulo, autor, editorial, sinopsis);
 
-                // Puedes agregar aquí lógica adicional, como mostrar un mensaje de éxito, limpiar los campos, etc.
+
             }
         });
     }
 
     private void guardarDatosEnBaseDeDatos(String titulo, String autor, String editorial, String sinopsis) {
-        // Aquí deberías usar una clase DBHelper que extienda SQLiteOpenHelper para manejar la creación y actualización de la base de datos.
-        // A continuación, se proporciona un ejemplo simple para ilustrar el proceso.
-
-        // Crear o abrir la base de datos en modo escritura
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // Crear un ContentValues para almacenar los datos
         ContentValues values = new ContentValues();
         values.put("titulo", titulo);
         values.put("autor", autor);
@@ -63,8 +56,6 @@ public class AddBookActivity extends AppCompatActivity {
 
         // Insertar los datos en la tabla "libros"
         long newRowId = db.insert("libros", null, values);
-
-        // Puedes verificar newRowId para determinar si la inserción fue exitosa
 
         // Cerrar la conexión de la base de datos
         db.close();
