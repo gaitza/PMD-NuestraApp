@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class InfoBookActivity extends CursorAdapter {
+public class BookCursorAdapter extends CursorAdapter {
 
-    public InfoBookActivity(Context context, Cursor cursor) {
+    public BookCursorAdapter(Context context, Cursor cursor) {
         super(context, cursor, 0);
     }
 
@@ -26,8 +26,8 @@ public class InfoBookActivity extends CursorAdapter {
         TextView tvEditorial = view.findViewById(R.id.textView_editorial2);
         TextView tvSinopsis = view.findViewById(R.id.textView_sinopsis2);
 
-        String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
-        String autor = cursor.getString(cursor.getColumnIndexOrThrow("autor"));
+        String titulo = cursor.getString(cursor.getColumnIndexOrThrow("title"));
+        String autor = cursor.getString(cursor.getColumnIndexOrThrow("author"));
         String editorial = cursor.getString(cursor.getColumnIndexOrThrow("editorial"));
         String sinopsis = cursor.getString(cursor.getColumnIndexOrThrow("sinopsis"));
 

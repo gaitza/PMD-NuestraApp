@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nuestra_app.db.DatabaseHelper;
@@ -22,7 +21,7 @@ import com.example.nuestra_app.db.DatabaseHelper;
 public class LoginActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private EditText editTextPassword;
-    private Button buttonLogin;
+    private Button btnAcceder_in;
     private DatabaseHelper dbHelper;
 
         @Override
@@ -46,9 +45,9 @@ public class LoginActivity extends AppCompatActivity {
 
             editTextUsername = findViewById(R.id.editTextUsuario_in);
             editTextPassword = findViewById(R.id.editTextPassword_in);
-            buttonLogin = findViewById(R.id.btnAcceder_in);
+            btnAcceder_in = findViewById(R.id.btnAcceder_in);
 
-            buttonLogin.setOnClickListener(v -> {
+            btnAcceder_in.setOnClickListener(v -> {
                 String username = editTextUsername.getText().toString();
                 String password = editTextPassword.getText().toString();
 

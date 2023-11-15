@@ -2,32 +2,20 @@ package com.example.nuestra_app;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.nuestra_app.db.DatabaseHelper;
+
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.nuestra_app.db.DatabaseHelper;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.nuestra_app.db.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnAddBook;
-    private ImageView imageView;
+
+
     private DatabaseHelper dbHelper;
+    private BookCursorAdapter bookAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,45 +24,55 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
 
-        btnAddBook = findViewById(R.id.btnAddBook);
-        imageView = findViewById(R.id.imageView);
+        // Configurar el adaptador de cursor
+        Cursor cursor = dbHelper.getAllBooks();
+        bookAdapter = new BookCursorAdapter(this, cursor);
 
-        // Configura el botón para agregar un nuevo libro
+        // Actualizar el cursor en caso de cambios en la base de datos
+        if (bookAdapter != null) {
+            Cursor updatedCursor = dbHelper.getAllBooks();
+            bookAdapter.swapCursor(updatedCursor);
+        }
+
+        // Obtener el primer libro del cursor (si existe)
+        if (cursor != null && cursor.moveToFirst()) {
+            String title = cursor.getString(cursor.getColumnIndexOrThrow("title"));
+            String author = cursor.getString(cursor.getColumnIndexOrThrow("author"));
+            String editorial = cursor.getString(cursor.getColumnIndexOrThrow("editorial"));
+            String sinopsis = cursor.getString(cursor.getColumnIndexOrThrow("sinopsis"));
+
+            // Configurar TextViews para mostrar la información del libro
+            TextView titleTextView = findViewById(R.id.textView_titulo);
+            TextView authorTextView = findViewById(R.id.textView_autor2);
+            TextView editorialTextView = findViewById(R.id.textView_editorial2);
+            TextView sinopsisTextView = findViewById(R.id.textView_sinopsis);
+
+            titleTextView.setText("Title: " + title);
+            authorTextView.setText("Author: " + author);
+            editorialTextView.setText("Editorial: " + editorial);
+            sinopsisTextView.setText("Sinopsis: " + sinopsis);
+        }
+
+        // Configurar el botón para agregar un nuevo libro
+        Button btnAddBook = findViewById(R.id.btnAddBook);
         btnAddBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Inicia la actividad para agregar un nuevo libro
+                // Abrir la actividad para agregar un nuevo libro
                 Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
-                startActivityForResult(intent, 1);
+                startActivity(intent);
             }
         });
-
-        // Muestra la imagen por defecto en el ImageView
-        mostrarImagenPorDefecto();
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            // Opcionalmente, puedes actualizar la interfaz de usuario aquí
-            // Por ejemplo, mostrar un Toast indicando que el libro se ha agregado
-            mostrarMensaje("Libro agregado");
-
-            // Muestra la imagen por defecto en el ImageView
-            mostrarImagenPorDefecto();
+    protected void onResume() {
+        super.onResume();
+        // Actualizar el cursor en caso de cambios en la base de datos
+        if (bookAdapter != null) {
+            Cursor cursor = dbHelper.getAllBooks();
+            bookAdapter.swapCursor(cursor);
         }
     }
-
-    private void mostrarImagenPorDefecto() {
-        // Muestra la imagen por defecto en el ImageView
-        imageView.setImageResource(R.drawable.imagen_por_defecto);
-    }
-
-    private void mostrarMensaje(String mensaje) {
-        // Puedes utilizar Toast o cualquier otro método para mostrar mensajes al usuario
-        // Aquí un ejemplo con Toast
-        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
-    }
 }
+

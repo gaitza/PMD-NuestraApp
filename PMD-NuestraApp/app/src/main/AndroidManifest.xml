@@ -27,10 +27,10 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".InfoBookActivity"
+            android:name=".AddBookActivity"
             android:exported="true" />
         <activity
-            android:name=".AddBookActivity"
+            android:name=".BookCursorAdapter"
             android:exported="true" />
     </application>
 

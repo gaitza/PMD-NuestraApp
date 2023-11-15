@@ -1,6 +1,7 @@
 package com.example.nuestra_app;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.example.nuestra_app.db.DatabaseHelper;
 public class AddBookActivity extends AppCompatActivity {
 
     private EditText editTextTitulo, editTextAutor, editTextEditorial, editTextSinopsis;
-    private Button btnAdd;
+    private Button btnAdd, btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,36 +27,46 @@ public class AddBookActivity extends AppCompatActivity {
         editTextEditorial = findViewById(R.id.editTextEditorial);
         editTextSinopsis = findViewById(R.id.editTextSinopsis);
         btnAdd = findViewById(R.id.btnAdd);
+        btnVolver = findViewById(R.id.btnVolver);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Obtener los datos ingresados por el usuario
-                String titulo = editTextTitulo.getText().toString();
-                String autor = editTextAutor.getText().toString();
+                String title = editTextTitulo.getText().toString();
+                String author = editTextAutor.getText().toString();
                 String editorial = editTextEditorial.getText().toString();
                 String sinopsis = editTextSinopsis.getText().toString();
 
                 // Almacenar los datos en la base de datos
-                guardarDatosEnBaseDeDatos(titulo, autor, editorial, sinopsis);
+                guardarDatosEnBaseDeDatos(title, author, editorial, sinopsis);
 
 
             }
         });
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddBookActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+
+
+        });
     }
 
-    private void guardarDatosEnBaseDeDatos(String titulo, String autor, String editorial, String sinopsis) {
+    private void guardarDatosEnBaseDeDatos(String title, String author, String editorial, String sinopsis) {
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("titulo", titulo);
-        values.put("autor", autor);
+        values.put("title", title);
+        values.put("author", author);
         values.put("editorial", editorial);
         values.put("sinopsis", sinopsis);
 
         // Insertar los datos en la tabla "libros"
-        long newRowId = db.insert("libros", null, values);
+        long newRowId = db.insert("books", null, values);
 
         // Cerrar la conexión de la base de datos
         db.close();
