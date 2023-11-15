@@ -32,6 +32,9 @@
         <activity
             android:name=".BookCursorAdapter"
             android:exported="true" />
+        <activity
+            android:name=".BookDetailActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

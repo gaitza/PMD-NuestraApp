@@ -19,6 +19,7 @@
     <string name="aniadir_libro">Añadir Libro</string>
 
     //fourth_activity
+    <string name="titulo">Titulo:</string>
     <string name="autor">Autor:</string>
     <string name="editorial">Editorial:</string>
     <string name="sinopsis">Sinopsis:</string>

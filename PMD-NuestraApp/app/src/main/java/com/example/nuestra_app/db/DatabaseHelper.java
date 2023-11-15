@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "library.db";
@@ -69,8 +67,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    public Cursor getBookById(String bookId) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
-    // Método para obtener todos los libros
+        String[] projection = {
+                COLUMN_TITLE,
+                COLUMN_AUTHOR,
+                COLUMN_EDITORIAL,
+                COLUMN_SINOPSIS
+        };
+
+        String selection = COLUMN_ID + " = ?";
+        String[] selectionArgs = { bookId };
+
+        Cursor cursor = db.query(
+                TABLE_NAME_B,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        return cursor;
+    }
+
+
     public Cursor getAllBooks() {
         SQLiteDatabase db = this.getReadableDatabase();
 

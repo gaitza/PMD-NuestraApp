@@ -16,7 +16,7 @@ public class BookCursorAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.infobook_acitivty, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.infobook_acitivity, parent, false);
     }
 
     @Override
@@ -31,9 +31,9 @@ public class BookCursorAdapter extends CursorAdapter {
         String editorial = cursor.getString(cursor.getColumnIndexOrThrow("editorial"));
         String sinopsis = cursor.getString(cursor.getColumnIndexOrThrow("sinopsis"));
 
-        tvTitulo.setText(titulo);
-        tvAutor.setText(autor);
-        tvEditorial.setText(editorial);
-        tvSinopsis.setText(sinopsis);
+        tvTitulo.setText("Title: " + titulo);
+        tvAutor.setText("Author: " + autor);
+        tvEditorial.setText("Editorial: " + editorial);
+        tvSinopsis.setText("Sinopsis: " + sinopsis);
     }
 }

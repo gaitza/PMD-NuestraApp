@@ -1,0 +1,102 @@
+<!-- res/layout/activity_book_detail.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BookDetailActivity">
+
+
+    <TextView
+        android:id="@+id/textView_titulo"
+        android:layout_width="391dp"
+        android:layout_height="68dp"
+        android:layout_above="@+id/textView_autor2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="33dp"
+        android:text="@string/titulo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
+
+    <TextView
+        android:id="@+id/textView_autor2"
+        android:layout_width="391dp"
+        android:layout_height="82dp"
+        android:layout_above="@+id/textView_editorial2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="38dp"
+        android:text="@string/autor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.185" />
+
+    <TextView
+        android:id="@+id/textView_editorial2"
+        android:layout_width="391dp"
+        android:layout_height="87dp"
+        android:layout_above="@+id/textView_sinopsis2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="45dp"
+        android:text="@string/editorial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.272" />
+
+    <TextView
+        android:id="@+id/textView_sinopsis2"
+        android:layout_width="match_parent"
+        android:layout_height="228dp"
+        android:layout_above="@+id/btnVolver"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/sinopsis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.603" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="55dp"
+        android:text="@string/volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.783" />
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
