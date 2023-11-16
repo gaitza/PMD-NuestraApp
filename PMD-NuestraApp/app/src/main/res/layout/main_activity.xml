@@ -43,6 +43,7 @@
         app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.595"
         app:srcCompat="@drawable/benten"
         tools:srcCompat="@drawable/benten" />
 
@@ -56,6 +57,7 @@
         app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.595"
         app:srcCompat="@drawable/inazuma"
         tools:srcCompat="@drawable/inazuma" />
 

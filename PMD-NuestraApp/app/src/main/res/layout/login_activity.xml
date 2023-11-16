@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:background="@color/white"
+            android:background="@color/black"
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp">
 
@@ -48,8 +48,8 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/email_in"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextPassword_in"
@@ -61,8 +61,8 @@
                     android:hint="@string/contrasenia_in"
                     android:inputType="textPassword"
                     android:padding="8dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <Button
                     android:id="@+id/btnAcceder_in"

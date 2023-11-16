@@ -48,8 +48,8 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/nombre_up"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextTextEmail_up"
@@ -60,8 +60,8 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/email_up"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextPass_up"
@@ -73,8 +73,8 @@
                     android:hint="@string/contrasenia_up"
                     android:inputType="textPassword"
                     android:padding="8dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextConfirmPass_up"
@@ -86,8 +86,8 @@
                     android:hint="@string/confirmcontrasenia_up"
                     android:inputType="textPassword"
                     android:padding="8dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <Button
                     android:id="@+id/btnRegister"

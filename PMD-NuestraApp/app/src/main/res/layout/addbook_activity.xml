@@ -54,8 +54,8 @@
                     android:drawablePadding="8dp"
                     android:hint="titulo:"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextAutor"
@@ -66,8 +66,8 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/autor"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextEditorial"
@@ -78,8 +78,8 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/editorial"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <EditText
                     android:id="@+id/editTextSinopsis"
@@ -90,8 +90,8 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/sinopsis"
                     android:padding="6dp"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white" />
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black" />
 
                 <Button
                     android:id="@+id/btnAdd"
