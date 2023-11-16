@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">NUESTRA_APP</string>
 
+    <string name="tittleLibro">Agregar Libro</string>
+    <string name="tittleRegistro">Registro</string>
+    <string name="portada">Portada</string>
     //activity_main
     <string name="email_in">Email:</string>
     <string name="contrasenia_in">Contraseña</string>
     <string name="acceder_in">Acceder</string>
-    <string name="crear_cuenta">¿No tienes cuenta?Pulsa Aqui.</string>
+    <string name="crear_cuenta">¿No tienes cuenta? Pulsa Aqui.</string>
 
     //secundary_activity
     <string name="nombre_up">Nombre:</string>

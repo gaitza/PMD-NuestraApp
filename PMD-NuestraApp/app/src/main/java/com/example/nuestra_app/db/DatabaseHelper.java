@@ -17,12 +17,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PASSWORD = "password";
 
     private static final String TABLE_NAME_B = "books";
-    private static final String COLUMN_ID = "_id";
+    public static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "title";
     private static final String COLUMN_AUTHOR = "author";
     private static final String COLUMN_EDITORIAL = "editorial";
     private static final String COLUMN_SINOPSIS = "sinopsis";
 
+    public static final String COLUMN_IMAGE = "image";
 
 
     public DatabaseHelper(Context context) {
@@ -39,11 +40,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD + " TEXT)";
 
         String createTableBooks = "CREATE TABLE " + TABLE_NAME_B + "(" +
-                        COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_TITLE + " TEXT, " +
-                        COLUMN_AUTHOR + " TEXT, " +
-                        COLUMN_EDITORIAL + " TEXT, " +
-                        COLUMN_SINOPSIS + " TEXT);";
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_AUTHOR + " TEXT, " +
+                COLUMN_EDITORIAL + " TEXT, " +
+                COLUMN_SINOPSIS + " TEXT, " +
+                COLUMN_IMAGE + " TEXT);";
+
 
         db.execSQL(createTableQuery);
         db.execSQL(createTableBooks);
@@ -103,7 +106,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_TITLE,
                 COLUMN_AUTHOR,
                 COLUMN_EDITORIAL,
-                COLUMN_SINOPSIS
+                COLUMN_SINOPSIS,
+                COLUMN_IMAGE
         };
 
 

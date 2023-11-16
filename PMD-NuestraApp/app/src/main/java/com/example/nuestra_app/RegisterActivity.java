@@ -56,6 +56,18 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = editTextPass_Up.getText().toString();
                 String confirmPassword = editTextConfirmPass_Up.getText().toString();
 
+                if(email.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Debes introducir un email!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(password.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "La contraseña no puede estar vacia!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(password.length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "La contraseña debe tener como minimo 6 caracteres!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (password.equals(confirmPassword)) {
                     // Crear una instancia de DatabaseHelper
                     DatabaseHelper dbHelper = new DatabaseHelper(RegisterActivity.this);
@@ -69,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (result != -1) {
                         // Registro exitoso
                         Toast.makeText(RegisterActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                        // Puedes redirigir al usuario a la pantalla de inicio de sesión o hacer cualquier otra acción aquí.
+                        abrirPantallaLogin();
                     } else {
                         // Ocurrió un error al registrar al usuario
                         Toast.makeText(RegisterActivity.this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show();
@@ -77,6 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     // Las contraseñas no coinciden, muestra un mensaje de error
                     Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         });
